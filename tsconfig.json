@@ -25,6 +25,9 @@
     "paths": {
       "test-lib": [
         "dist/test-lib"
+      ],
+      "@common/*": [
+        "./src/app/common/*"
       ]
     }
   },
