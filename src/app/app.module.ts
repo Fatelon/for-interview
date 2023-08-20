@@ -4,16 +4,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { TestLibModule } from 'test-lib';
+import { SimpleTextComponent } from 'test-lib';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TestLibModule,
+    SimpleTextComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
