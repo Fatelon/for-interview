@@ -1,12 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
-import { SimpleTextComponent } from 'test-lib';
-
+import { SimpleButtonComponent, SimpleTextComponent } from 'test-lib';
 
 interface ISimpleTestForm {
   userName: FormControl<string | null>;
-  useremail: FormControl<string | null>;
+  userEmail: FormControl<string | null>;
 }
 
 @Component({
@@ -16,7 +15,7 @@ interface ISimpleTestForm {
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    ReactiveFormsModule, SimpleTextComponent,
+    ReactiveFormsModule, SimpleButtonComponent, SimpleTextComponent,
   ],
 })
 export default class HomeComponent {
@@ -24,6 +23,18 @@ export default class HomeComponent {
 
   protected simpleFormGroup: FormGroup<ISimpleTestForm> = this.formBuilder.group({
     userName: new FormControl<string>('', [Validators.required]),
-    useremail: new FormControl<string>('', [Validators.required, Validators.email]),
+    userEmail: new FormControl<string>('', [Validators.required, Validators.email]),
   });
+
+  protected get userNameControl() {
+    return this.simpleFormGroup.controls.userName;
+  }
+
+  protected get userEmailControl() {
+    return this.simpleFormGroup.controls.userEmail;
+  }
+
+  protected onSave(): void {
+    console.log('Save user data', this.simpleFormGroup.value);
+  }
 }

@@ -8,7 +8,7 @@ describe('SimpleTextComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SimpleTextComponent]
+      declarations: [SimpleTextComponent],
     });
     fixture = TestBed.createComponent(SimpleTextComponent);
     component = fixture.componentInstance;

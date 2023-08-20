@@ -1,0 +1,11 @@
+@import 'shared';
+
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &__form-label {
+    @include font-16-28-bold($fi-text-2);
+  }
+}

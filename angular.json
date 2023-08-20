@@ -32,6 +32,11 @@
               "node_modules/primeng/resources/primeng.min.css",
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./src/app/styles"
+              ]
+            },
             "scripts": []
           },
           "configurations": {

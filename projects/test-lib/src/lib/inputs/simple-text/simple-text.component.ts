@@ -1,5 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { InputTextModule } from 'primeng/inputtext';
+
+import { BaseFieldDirective, provideNgValueAccessor } from '../../directives';
 
 @Component({
   standalone: true,
@@ -7,10 +11,12 @@ import { InputTextModule } from 'primeng/inputtext';
   templateUrl: './simple-text.component.html',
   styleUrls: ['./simple-text.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    InputTextModule,
-  ]
+  imports: [InputTextModule, ReactiveFormsModule],
+  providers: [provideNgValueAccessor(SimpleTextComponent)],
 })
-export class SimpleTextComponent {
+export class SimpleTextComponent extends BaseFieldDirective {
 
+  constructor() {
+    super();
+  }
 }

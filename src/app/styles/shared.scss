@@ -1,0 +1,17 @@
+// Text:
+$fi-text-1: #000000;
+$fi-text-2: #161e54;
+
+
+// Mixins:
+@mixin font-16-28-medium($color: $fi-text-1) {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 28px;
+  color: $color;
+}
+
+@mixin font-16-28-bold($color: $fi-text-1) {
+  @include font-16-28-medium($color);
+  font-weight: 600;
+}

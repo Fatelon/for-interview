@@ -1,2 +1,16 @@
-<p>Simple lib form:</p>
-<lib-simple-text></lib-simple-text>
+<div
+  class="home"
+  [formGroup]="simpleFormGroup"
+>
+  <span class="home__form-label">Simple lib form:</span>
+
+  <lib-simple-text [formControl]="userNameControl"></lib-simple-text>
+
+  <lib-simple-text [formControl]="userEmailControl"></lib-simple-text>
+
+  <lib-simple-button
+    [label]="'Save'"
+    (onClick)="onSave()"
+  ></lib-simple-button>
+</div>
+
