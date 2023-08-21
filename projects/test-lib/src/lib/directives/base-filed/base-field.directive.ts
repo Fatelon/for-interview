@@ -4,6 +4,7 @@ import {
   ControlValueAccessor,
   FormBuilder,
   FormControl,
+  NgControl,
   ValidationErrors,
   Validator,
   ValidatorFn
@@ -21,15 +22,16 @@ export class BaseFieldDirective<
   FieldValue = unknown,
   FieldError extends ValidationErrors = ValidationErrors,
 > implements OnInit, ControlValueAccessor, Validator, OnDestroy {
+
   private readonly formBuilder: FormBuilder = inject(FormBuilder);
 
   @Input() public valueControl: FormControl<FieldValue | null> = this.formBuilder.nonNullable.control(null);
 
-  private readonly destroy$ = new Subject<void>;
+  public readonly destroy$ = new Subject<void>;
 
-  private validateChange: TValidateFunction = (): void => {};
-  private propagateTouched: TPropagateFunction<FieldValue> = <T>(propagateValue: T): void => {};
-  private propagateChange: TPropagateFunction<FieldValue> = <T>(propagateValue: T): void => {};
+  public validateChange: TValidateFunction = (): void => {};
+  public propagateTouched: TPropagateFunction<FieldValue> = <T>(propagateValue: T): void => {};
+  public propagateChange: TPropagateFunction<FieldValue> = <T>(propagateValue: T): void => {};
 
   protected constructor(validators: ValidatorFn[] = [] as ValidatorFn[]) {
     this.initValidators(validators);
@@ -61,8 +63,6 @@ export class BaseFieldDirective<
       map(([_, newValue]) => newValue),
       filter(newValue => newValue !== null),
     ).subscribe(newValue => {
-        this.validateChange();
-        this.propagateTouched(newValue as FieldValue);
         this.propagateChange(newValue as FieldValue);
       }
     );
