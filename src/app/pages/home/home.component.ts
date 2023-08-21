@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { OppositeDirective } from '@common/derectives';
 
 import { SimpleButtonComponent, SimpleTextComponent } from 'test-lib';
 
@@ -15,7 +16,7 @@ interface ISimpleTestForm {
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    ReactiveFormsModule, SimpleButtonComponent, SimpleTextComponent,
+    ReactiveFormsModule, SimpleButtonComponent, SimpleTextComponent, OppositeDirective,
   ],
 })
 export default class HomeComponent {
@@ -25,6 +26,8 @@ export default class HomeComponent {
     userName: new FormControl<string>('', [Validators.required]),
     userEmail: new FormControl<string>('', [Validators.required, Validators.email]),
   });
+
+  protected flag = true;
 
   protected get userNameControl() {
     return this.simpleFormGroup.controls.userName;

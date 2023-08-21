@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ChartComponent } from '@common/chart/chart/chart.component';
+import { Chart } from 'chart.js';
+import { DropdownModule } from 'primeng/dropdown';
 
 @Component({
   standalone: true,
@@ -7,8 +10,16 @@ import { CommonModule } from '@angular/common';
   templateUrl: './my-form.component.html',
   styleUrls: ['./my-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule],
+  imports: [ReactiveFormsModule, ChartComponent, DropdownModule],
 })
 export default class MyFormComponent {
 
+  protected chartTypes: any = [
+    { name: 'Bar', code: 'bar' },
+    { name: 'Line', code: 'line' },
+  ];
+
+  protected selectedType = new FormControl(this.chartTypes[0]);
+
 }
+

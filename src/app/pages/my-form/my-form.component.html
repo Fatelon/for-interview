@@ -1,1 +1,15 @@
-<p>my-form works!</p>
+<div class="my-form">
+  <p>my-form works!</p>
+
+  <p-dropdown
+    [formControl]="selectedType"
+    [options]="chartTypes"
+    optionLabel="name"
+  ></p-dropdown>
+
+  <fi-chart
+    class="my-form__chart"
+    [selectedChartType]="selectedType.value?.code"
+  />
+
+</div>
