@@ -2,8 +2,6 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { OppositeDirective } from '@common/derectives';
 
-import { SimpleButtonComponent, SimpleTextComponent } from 'test-lib';
-
 interface ISimpleTestForm {
   userName: FormControl<string | null>;
   userEmail: FormControl<string | null>;
@@ -16,7 +14,7 @@ interface ISimpleTestForm {
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    ReactiveFormsModule, SimpleButtonComponent, SimpleTextComponent, OppositeDirective,
+    ReactiveFormsModule,
   ],
 })
 export default class HomeComponent {
