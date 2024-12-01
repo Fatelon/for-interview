@@ -13,7 +13,7 @@ interface ISimpleTestForm {
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    ReactiveFormsModule,
+    // ReactiveFormsModule,
   ],
 })
 export default class HomeComponent {
