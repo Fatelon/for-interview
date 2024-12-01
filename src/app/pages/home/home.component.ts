@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { OppositeDirective } from '@common/derectives';
 
 interface ISimpleTestForm {
   userName: FormControl<string | null>;
